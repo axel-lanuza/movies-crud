@@ -1,0 +1,79 @@
+<div class="grid-container">
+  <header class="header">
+    <div class="header_logo">
+      <img src="./assets/Human-color.png" alt="logo Human Tech">
+    </div>
+    <div class="header_avatar">
+      <figure>
+        <img src="./assets/user.jpg" alt="">
+        <figcaption>
+          Admin
+        </figcaption>
+      </figure>
+    </div>
+  </header>
+  <aside class="aside">
+    <ul class="aside_list">
+      <li class="aside_list-item" *ngFor="let menuItem of asideManuItems">
+        {{menuItem}}
+      </li>
+    </ul>
+  </aside>
+  <main class="main">
+    <div class="main_overview">
+      <div class="movies-info">
+        <h1>
+          Peliculas
+        </h1>
+        <div class="button-add-movie text-right">
+          <button class="btn btn-danger" (click)="newMovie()">
+            Nueva Pelicula
+          </button>
+        </div>
+      </div>
+      <div class="movie-table-grid">
+        <div class="table-header">
+          <span>
+            ID
+          </span>
+          <span>
+            Nombre
+          </span>
+          <span>
+            F. Publicación
+          </span>
+          <span>
+            Estado
+          </span>
+          <span>
+          </span>
+        </div>
+
+        <div class="table-body" *ngFor="let movie of movies">
+          <span>
+            {{movie.id}}
+          </span>
+          <span>
+            {{movie.name}}
+          </span>
+          <span>
+            {{movie.added}}
+          </span>
+          <span>
+            {{movie.status ? 'Activo' : 'Inactivo'}}
+          </span>
+          <span class="crud-actions">
+            <i class="fa fa-edit" (click)="editMovie(movie.id)"></i>
+            <i class="fa fa-trash" (click)="deleteMovie(movie.id)"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer_copyright">&copy;2020</div>
+  </footer>
+</div>
+
+
+<router-outlet></router-outlet>

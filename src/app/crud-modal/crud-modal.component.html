@@ -1,0 +1,41 @@
+<div class="crud-modal">
+    <div class="modal-header text-center">
+        <h4 class="modal-title">{{title}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+          <span aria-hidden="true" class="icon-27">X</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" class="form container">
+            <div class="form-group row">
+                <label class="col-3" for="movieName">
+                    Nombre de pelicula
+                </label>
+                <input type="text" formControlName="name" class="form-control col-9" [value]="movie?.name">
+            </div>
+            <div class="form-group row">
+                <label class="col-3" for="movieName">
+                    Fecha de Publicación
+                </label>
+                <input type="text" formControlName="added" class="form-control col-9" [value]="movie?.added">
+            </div>
+            <div class="form-group row">
+                <label class="col-3" for="movieName">
+                    Estado
+                </label>
+                <select formControlName="status" class="form-control col-9" name="" id="">
+                    <option>Seleccione estado</option>
+                    <option [ngValue]="'true'" value="true" [selected]="movie?.status">Activo</option>
+                    <option [ngValue]="'false'" value="false" [selected]="!movie?.status">Inactivo</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-secess">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
